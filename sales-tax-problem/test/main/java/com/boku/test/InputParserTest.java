@@ -1,4 +1,4 @@
-package com.domain;
+package com.boku.test;
 
 import java.util.Arrays;
 import java.util.HashSet;
