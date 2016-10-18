@@ -19,8 +19,9 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
+						<index>true</index>
 						<manifest>
-							<mainClass>com.driver.SalesTaxCalculator</mainClass>
+							<mainClass>com.boku.main.SalesTaxCalculator</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

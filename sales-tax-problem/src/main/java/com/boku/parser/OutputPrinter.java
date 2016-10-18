@@ -27,6 +27,9 @@ public class OutputPrinter {
 	}
 	
 	public void print(){
+		System.out.println("Output");
+		System.out.println("--------------");
+		
 		for (Item item : items) {
 			System.out.println(item.toString());
 		}

@@ -1,5 +1,7 @@
 package com.boku.model;
 
+import com.boku.util.NumberUtils;
+
 
 /**
  * Item related properties.
@@ -72,6 +74,6 @@ public class Item {
 	
 	@Override
 	public String toString() {
-		return quantity + "" + itemDescription +": "+  price;
+		return quantity + "" + itemDescription +": "+  NumberUtils.roundOff(price+importTax+salesTax);
 	}
 }

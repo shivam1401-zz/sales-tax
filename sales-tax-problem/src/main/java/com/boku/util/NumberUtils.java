@@ -3,7 +3,7 @@ package com.boku.util;
 import java.math.BigDecimal;
 
 /**
- * This provided utility method to round off the calculation to 2 decimal places.
+ * This provides utility method to round off the calculation to 2 decimal places.
  * @author shivammishra
  */
 public final class NumberUtils {

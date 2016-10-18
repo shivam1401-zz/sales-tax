@@ -72,16 +72,16 @@ Assumption
 
 
 To get started, please complete the following steps:
+-------------------
 
 1. Download/checkout project
 2. Extract the file to a folder
 3. Go to the extracted project root folder
 4. Run this command from Terminal/Command Line - "run mvn clean install".
-5. There will be a generated jar under target folder of the project. 
-5. Run the jar via " java -jar <jar-name>.jar <input-file-path>.
-eg: java -jar salesCalculator.jar input/input1.txt
+5. To run the programe: mvn exec:java -Dexec.mainClass="com.boku.main.SalesTaxCalculator" -Dexec.args="input/input1.txt". Note that -Dexec.args should be your file path.
+6. You can also try exporting the runnable jar and Run the jar i.e " java -jar 'jar-name.jar' 'input-file-path' eg: java -jar salesCalculator.jar input/input1.txt
 
 Technology Used
 -----------------
 
-Core Java and maven
+Java and maven

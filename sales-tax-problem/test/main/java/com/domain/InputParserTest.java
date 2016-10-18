@@ -15,7 +15,7 @@ import com.boku.parser.InputParser;
 
 public class InputParserTest {
 
-	private InputParser classifier;
+	private InputParser parser;
 	
 	private List<String> inputItems = null;
 	
@@ -25,9 +25,9 @@ public class InputParserTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		input = new String[]{"1 chocolate bar at 0.85",  "1 nokia n95 at 599.99"};
+		input = new String[]{"1 chocolate at 0.50",  "1 perfume at 199.99"};
 		exclusion = new String[]{"chocolate"};
-		inputWithImportedItem = new String[]{"1 imported nokia n95 at 599.99"};
+		inputWithImportedItem = new String[]{"1 perfume at 199.99"};
 	}
 
 	@After
@@ -39,13 +39,13 @@ public class InputParserTest {
 	@Test
 	public void testParserShouldParseItems() {
 		Set<Item> expectedItems = new HashSet<Item>();
-		expectedItems.add(new Item(1, " chocolate bar", 0.85, true, false));
-		expectedItems.add(new Item(1, " nokia n95", 599.99, false, false));
+		expectedItems.add(new Item(1, " chocolate", 0.50, true, false));
+		expectedItems.add(new Item(1, " perfume", 199.99, false, false));
 
 		inputItems = Arrays.asList(input);
 		exclusions = Arrays.asList(exclusion);
-		classifier = new InputParser(inputItems, exclusions);
-		List<Item> actualItems = classifier.extractDataFromText();
+		parser = new InputParser(inputItems, exclusions);
+		List<Item> actualItems = parser.extractDataFromText();
 		
 		Assert.assertTrue(expectedItems.containsAll(actualItems));
 	}
@@ -53,11 +53,11 @@ public class InputParserTest {
 	@Test 
 	public void testParserShouldDetectImportedItems(){
 		Set<Item> expectedItems = new HashSet<Item>();
-		expectedItems.add(new Item(1, " imported nokia n95", 599.99, false, true));
+		expectedItems.add(new Item(1, " imported perfume", 199.99, false, true));
 		inputItems = Arrays.asList(inputWithImportedItem);
 		exclusions = Arrays.asList(exclusion);
-		classifier = new InputParser(inputItems, exclusions);
-		List<Item> actualItems = classifier.extractDataFromText();
+		parser = new InputParser(inputItems, exclusions);
+		List<Item> actualItems = parser.extractDataFromText();
 		
 		Assert.assertTrue(expectedItems.containsAll(actualItems));
 	}

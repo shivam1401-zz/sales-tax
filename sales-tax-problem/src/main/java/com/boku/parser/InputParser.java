@@ -62,7 +62,7 @@ public class InputParser {
 	 * @output: boolean (whether it is one of excluded item or not.)
 	*/
 	private boolean isExcluded(String itemText){
-		Joiner joiner = Joiner.on("|");
+		Joiner joiner = Joiner.on("|"); //Returns a joiner which automatically places separator between consecutive elements.
 		Pattern exclusionPattern = Pattern.compile(joiner.join(exclusions), Pattern.CASE_INSENSITIVE);
 		Matcher exclusionMatcher = exclusionPattern.matcher(itemText);
 		return exclusionMatcher.find();
